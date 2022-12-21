@@ -19,7 +19,6 @@ import lombok.Setter;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Profile {
 	
-	
 	@JsonProperty("uuid")
 	private Long uuid;
 	@JsonProperty("nickname")
