@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lex.practice.model.Post;
+import com.lex.practice.model.PostComment;
 import com.lex.practice.service.PostService;
 
 @RestController
@@ -44,10 +45,17 @@ public class CallExternalController {
 	
 	
 	@GetMapping("/posts/users/{userId}")
-	public ResponseEntity<List<Post>> getPostsByUserId(@PathVariable("userId") int id, Post postModel) {
+	public ResponseEntity<List<Post>> getPostsByUserId(@PathVariable("userId") int id) {
 		List<Post> postList = postService.fetchAllPostsByUserId(id);
 	
 		return ResponseEntity.ok(postList);
+	}
+	
+	@GetMapping("/posts/comments/{postId}")
+	public ResponseEntity<List<PostComment>> getAllCommentsFromPost(@PathVariable("postId") int id) {
+		List<PostComment> comments = postService.fetchAllCommentsFromPost(id);
+	
+		return ResponseEntity.ok(comments);
 	}
 	
 	@PostMapping("/posts")

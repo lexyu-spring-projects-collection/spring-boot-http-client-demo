@@ -3,6 +3,7 @@ package com.lex.practice.service;
 import java.util.List;
 
 import com.lex.practice.model.Post;
+import com.lex.practice.model.PostComment;
 
 public interface PostService {
 	
@@ -16,5 +17,6 @@ public interface PostService {
 	Post updatePost(Post postModel, int id);
 
 	void deletePost(int id);
-
+	
+	List<PostComment> fetchAllCommentsFromPost(int postId);
 }

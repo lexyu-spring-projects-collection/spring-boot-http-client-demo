@@ -18,6 +18,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lex.practice.model.Post;
+import com.lex.practice.model.PostComment;
 import com.lex.practice.service.PostService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -105,6 +106,27 @@ public class PostServiceImpl implements PostService{
 	@Override
 	public void deletePost(int id) {
 		restTemplate.delete(fakeAPIBaseUrl + "/posts/{id}", id);
+	}
+
+	@Override
+	public List<PostComment> fetchAllCommentsFromPost(int postId) {
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		
+		HttpEntity<PostComment> httpEntity = new HttpEntity<>(headers);
+		
+		ResponseEntity<Object[]> responseEntity = 
+				restTemplate.exchange(fakeAPIBaseUrl + "/posts/{postId}/comments", HttpMethod.GET, httpEntity, Object[].class, postId);
+		
+		List<PostComment> comments = new ArrayList<>();
+		
+		if (responseEntity.getStatusCode() == HttpStatus.OK) {
+			comments = Arrays.stream(responseEntity.getBody())
+					.map(object -> mapper.convertValue(object, PostComment.class))
+					.collect(Collectors.toList());
+		}
+		
+		return comments;	
 	}
 
 	/*
