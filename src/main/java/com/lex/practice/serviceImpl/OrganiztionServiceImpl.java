@@ -31,7 +31,7 @@ public class OrganiztionServiceImpl implements OrganiztionService{
 	private ObjectMapper mapper;
 	
 	@Override
-	public Organization getOrgList() {
+	public Organization getOrgList(String uid) {
 		Organization orgs = new Organization();
 		
 		HttpHeaders headers = new HttpHeaders();

@@ -39,8 +39,8 @@ public class CallOutsideController {
 	}
 	
 	@PostMapping("/getOrgList")
-	public Organization getOrgList() {
-//		organiztionService.getOrgList();
+	public Organization getOrgList(HttpServletRequest requests) {
+//		organiztionService.getOrgList(uid);
 	
 		return null;
 	}
