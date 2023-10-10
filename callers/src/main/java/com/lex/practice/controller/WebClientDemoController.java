@@ -27,4 +27,21 @@ public class WebClientDemoController {
         return ResponseEntity.ok(productFlux);
     }
 
+    @GetMapping("/webclient-2")
+    public ResponseEntity<Flux<Object>> getGenericResponseWebclient() {
+        long start = System.nanoTime();
+
+
+        Flux<Object> genericResponseFlux = WebClient.create("http://127.0.0.1:8080/products?type=webclient")
+                .get()
+                .retrieve()
+                .bodyToFlux(Object.class)
+                .doOnNext(res -> log.info("Json Response = {}", res));
+
+        long end = System.nanoTime();
+        log.info(Thread.currentThread().getName() + " webclient cost:" +  ((end - start) / 1_000_000_000) + "s");
+
+        return ResponseEntity.ok(genericResponseFlux);
+    }
+
 }
