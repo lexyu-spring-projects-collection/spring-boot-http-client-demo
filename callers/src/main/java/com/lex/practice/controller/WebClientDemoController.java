@@ -2,6 +2,7 @@ package com.lex.practice.controller;
 
 import com.lex.practice.model.Product;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,6 +15,7 @@ import reactor.core.publisher.Flux;
 @Slf4j
 @RestController
 public class WebClientDemoController {
+
     @GetMapping("/webclient")
     public ResponseEntity<Flux<Product>> getProductsWebclient() {
         long start = System.nanoTime();
@@ -21,9 +23,12 @@ public class WebClientDemoController {
                 .get()
                 .retrieve()
                 .bodyToFlux(Product.class)
-                .doOnNext(res -> log.info("Json Response = {}", res));
+                .doOnNext(res -> {
+                    log.info("Json Response = {}", res);
+                });
         long end = System.nanoTime();
         log.info(Thread.currentThread().getName() + " webclient cost:" +  ((end - start) / 1_000_000_000) + "s");
+        log.info("Print Immediately, No Block");
         return ResponseEntity.ok(productFlux);
     }
 

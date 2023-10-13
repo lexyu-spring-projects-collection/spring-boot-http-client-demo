@@ -23,6 +23,7 @@ public class RestTemplateDemoController {
         ResponseEntity<Product[]> resEntity = restTemplate.getForEntity("http://127.0.0.1:8080/products?type=rest", Product[].class);
         long end = System.nanoTime();
         log.info(Thread.currentThread().getName() + " restTemplate cost:" + ((end - start) / 1_000_000_000) + "s");
+        log.info("Block 5 Seconds");
         List<Product> products = Arrays.asList(resEntity.getBody());
         return products;
     }
