@@ -20,11 +20,28 @@ public class RestTemplateDemoController {
     public List<Product> getProductsRestTemplate() {
         RestTemplate restTemplate = new RestTemplate();
         long start = System.nanoTime();
-        ResponseEntity<Product[]> resEntity = restTemplate.getForEntity("http://127.0.0.1:8080/products?type=rest", Product[].class);
+        ResponseEntity<Product[]> resEntity = restTemplate.getForEntity("http://127.0.0.1:9999/products?type=rest", Product[].class);
         long end = System.nanoTime();
         log.info(Thread.currentThread().getName() + " restTemplate cost:" + ((end - start) / 1_000_000_000) + "s");
         log.info("Block 5 Seconds");
         List<Product> products = Arrays.asList(resEntity.getBody());
+        log.info("Json Response = {}", products);
+
+        return products;
+    }
+
+    @GetMapping("/rest-2")
+    public List<Product> getProductsRestTemplate2() {
+        RestTemplate restTemplate = new RestTemplate();
+        long start = System.nanoTime();
+        ResponseEntity<Product[]> resEntity = restTemplate.getForEntity("http://127.0.0.1:9999/products?type=rest",
+                Product[].class);
+        long end = System.nanoTime();
+        log.info(Thread.currentThread().getName() + " restTemplate cost:" + ((end - start) / 1_000_000_000) + "s");
+        log.info("Block 5 Seconds");
+        List<Product> products = Arrays.asList(resEntity.getBody());
+        log.info("Json Response = {}", products);
+
         return products;
     }
 }

@@ -19,7 +19,7 @@ public class WebClientDemoController {
     @GetMapping("/webclient")
     public ResponseEntity<Flux<Product>> getProductsWebclient() {
         long start = System.nanoTime();
-        Flux<Product> productFlux = WebClient.create("http://127.0.0.1:8080/products?type=webclient")
+        Flux<Product> productFlux = WebClient.create("http://127.0.0.1:9999/products?type=webclient")
                 .get()
                 .retrieve()
                 .bodyToFlux(Product.class)
@@ -37,7 +37,7 @@ public class WebClientDemoController {
         long start = System.nanoTime();
 
 
-        Flux<Object> genericResponseFlux = WebClient.create("http://127.0.0.1:8080/products?type=webclient")
+        Flux<Object> genericResponseFlux = WebClient.create("http://127.0.0.1:9999/products?type=webclient")
                 .get()
                 .retrieve()
                 .bodyToFlux(Object.class)
