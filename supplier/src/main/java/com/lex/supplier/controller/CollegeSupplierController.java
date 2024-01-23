@@ -1,7 +1,6 @@
 package com.lex.supplier.controller;
 
 import com.lex.supplier.dto.TestDto;
-import com.lex.supplier.model.College;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-public class CollegeController {
+public class CollegeSupplierController {
 
 	@GetMapping("/college")
 	public ResponseEntity<TestDto> getCollegesInfo() throws InterruptedException {

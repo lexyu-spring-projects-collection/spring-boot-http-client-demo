@@ -1,4 +1,4 @@
-package com.lex.practice.model;
+package com.lex.caller.model;
 
 /**
  * @author : Lex Yu

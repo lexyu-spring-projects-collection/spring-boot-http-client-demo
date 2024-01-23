@@ -1,7 +1,7 @@
-package com.lex.practice.controller.unsorted_old_code;
+package com.lex.caller.controller;
 
-import com.lex.practice.dto.TestDto;
-import com.lex.practice.model.Student;
+import com.lex.caller.dto.TestDto;
+import com.lex.caller.model.Student;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 
 @RestController
 @RequestMapping("/student")
-public class StudentController {
+public class StudentCallerController {
 	@GetMapping
 	public ResponseEntity<Student> getStudentsInfo(){
 		

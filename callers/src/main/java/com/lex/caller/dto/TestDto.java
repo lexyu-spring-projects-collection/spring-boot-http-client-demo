@@ -1,4 +1,4 @@
-package com.lex.practice.dto;
+package com.lex.caller.dto;
 
 import lombok.Data;
 

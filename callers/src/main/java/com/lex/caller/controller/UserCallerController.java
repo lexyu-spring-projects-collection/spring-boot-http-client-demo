@@ -1,7 +1,7 @@
-package com.lex.practice.controller.unsorted_old_code;
+package com.lex.caller.controller;
 
-import com.lex.practice.model.Users;
-import com.lex.practice.service.WebClientService;
+import com.lex.caller.model.Users;
+import com.lex.caller.service.WebClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -13,12 +13,12 @@ import reactor.core.publisher.Mono;
  * @author : Lex Yu
  */
 @RestController
-public class DemoController {
+public class UserCallerController {
 
 	private final WebClientService webClientService;
 
 	@Autowired
-	public DemoController(WebClientService webClientService) {
+	public UserCallerController(WebClientService webClientService) {
 		this.webClientService = webClientService;
 	}
 

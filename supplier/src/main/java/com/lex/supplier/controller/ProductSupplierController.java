@@ -15,9 +15,9 @@ import java.util.List;
  * @author : Lex Yu
  */
 @RestController
-public class SupplierController {
+public class ProductSupplierController {
 
-    private static final Logger log = LoggerFactory.getLogger(SupplierController.class);
+    private static final Logger log = LoggerFactory.getLogger(ProductSupplierController.class);
 
     @GetMapping("/products")
     public ResponseEntity<List<Product>> getAllProducts(@RequestParam String type) throws InterruptedException {

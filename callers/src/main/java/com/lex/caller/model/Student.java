@@ -1,6 +1,6 @@
-package com.lex.practice.model;
+package com.lex.caller.model;
 
-import com.lex.practice.dto.TestDto;
+import com.lex.caller.dto.TestDto;
 import lombok.Data;
 
 @Data

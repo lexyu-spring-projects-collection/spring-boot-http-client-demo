@@ -1,6 +1,6 @@
-package com.lex.practice.service;
+package com.lex.caller.service;
 
-import com.lex.practice.model.Users;
+import com.lex.caller.model.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpHeaders;

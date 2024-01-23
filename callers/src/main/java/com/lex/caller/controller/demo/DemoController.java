@@ -1,4 +1,4 @@
-package com.lex.practice.controller;
+package com.lex.caller.controller.demo;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,7 +9,7 @@ import org.springframework.web.reactive.function.client.WebClient;
  * @author : Lex Yu
  */
 @RestController
-public class TryController {
+public class DemoController {
 
 	private WebClient webClient;
 
